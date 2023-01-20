@@ -1,0 +1,114 @@
+{% extends 'base.html' %}
+
+
+{% block title %}Inicio{% endblock title %}
+{% block content %}
+{% if user.is_authenticated %}
+<div class="row mt-5 mb-5">
+    <div class="col-sm-4 mt-3">
+        <a class="card shadow btn btn-outline-info" style="text-decoration:none;color:black;cursor:pointer">
+            <div class="card-body row">
+                <span class="material-symbols-outlined col-sm-1">
+                    point_of_sale
+                </span>
+                <span class="col-sm-11">CAJA</span>
+            </div>
+            <div class="card-footer bg-success"></div>
+        </a>
+    </div>
+    <div class="col-sm-4 mt-3">
+        <a class="card shadow btn btn-outline-info" style="text-decoration:none;color:black;cursor:pointer">
+            <div class="card-body row">
+                <span class="material-symbols-outlined col-sm-1">
+                    receipt
+                </span>
+                <span class="col-sm-11">VENTAS</span>
+            </div>
+            <div class="card-footer bg-success"></div>
+        </a>
+    </div>
+    <div class="col-sm-4 mt-3">
+        <a class="card shadow btn btn-outline-info" style="text-decoration:none;color:black;cursor:pointer">
+            <div class="card-body row">
+                <span class="material-symbols-outlined col-sm-1">
+                    person
+                </span>
+                <span class="col-sm-11">CLIENTES</span>
+            </div>
+            <div class="card-footer bg-success"></div>
+        </a>
+    </div>
+    <div class="col-sm-4 mt-3">
+        <a class="card shadow btn btn-outline-info" style="text-decoration:none;color:black;cursor:pointer">
+            <div class="card-body row">
+                <span class="material-symbols-outlined col-sm-1">
+                    inventory
+                </span>
+                <span class="col-sm-11">PRODUCTOS</span>
+            </div>
+            <div class="card-footer bg-success"></div>
+        </a>
+    </div>
+    <div class="col-sm-4 mt-3">
+        <a class="card shadow btn btn-outline-info" style="text-decoration:none;color:black;cursor:pointer">
+            <div class="card-body row">
+                <span class="material-symbols-outlined col-sm-1">
+                    handshake
+                </span>
+                <span class="col-sm-11">PROVEEDORES</span>
+            </div>
+            <div class="card-footer bg-success"></div>
+        </a>
+    </div>
+    <div class="col-sm-4 mt-3">
+        <a class="card shadow btn btn-outline-info" style="text-decoration:none;color:black;cursor:pointer">
+            <div class="card-body row">
+                <span class="material-symbols-outlined col-sm-1">
+                    monitoring
+                </span>
+                <span class="col-sm-11">MONITOREO</span>
+            </div>
+            <div class="card-footer bg-success"></div>
+        </a>
+    </div>
+    <div class="col-sm-4 mt-3">
+        <a class="card shadow btn btn-outline-info" style="text-decoration:none;color:black;cursor:pointer">
+            <div class="card-body row">
+                <span class="material-symbols-outlined col-sm-1">
+                    lab_profile
+                </span>
+                <span class="col-sm-11">COMPRAS</span>
+            </div>
+            <div class="card-footer bg-success"></div>
+        </a>
+    </div>
+    <div class="col-sm-4 mt-3">
+        <a class="card shadow btn btn-outline-info" href="{% url 'modulo_tienda' %}" style="text-decoration:none;color:black;cursor:pointer">
+            <div class="card-body row">
+                <span class="material-symbols-outlined col-sm-1">
+                    shop
+                </span>
+                <span class="col-sm-11">TIENDA</span>
+            </div>
+            <div class="card-footer bg-success"></div>
+        </a>
+    </div>
+    
+    
+        {% if user.is_superuser %}
+        <div class="col-sm-4 mt-3">
+            <a class="card shadow btn btn-outline-info" href="/admin/" style="text-decoration:none;color:black;cursor:pointer">
+                <div class="card-body row">
+                    <span class="material-symbols-outlined col-sm-1">
+                        verified_user
+                    </span>
+                    <span class="col-sm-11">ADMIN</span>
+                </div>
+                <div class="card-footer bg-danger"></div>
+            </a>
+        </div>
+        {% endif %}
+</div>
+{% endif %}
+{% endblock content %}
+    

@@ -1,0 +1,240 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es-gt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
+    <title>{% block title %}{% endblock title %} | {{nombre_tienda}}</title>
+</head>
+<body>
+    <header>
+        <nav class="navbar bg-dark ">
+            <div class="container">
+                <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#sideMenu" aria-controls="sideMenu">
+                    <span class="material-symbols-outlined text-white">
+                        menu
+                    </span>
+                </button>
+                <div class="offcanvas offcanvas-start" tabindex="-1" id="sideMenu" aria-labelledby="sideMenuLabel">
+                    <div class="offcanvas-header">
+                        <a class="navbar-brand" href="/" style="text-decoration:none;cursor:pointer;color:black">
+                            <img src="{% static 'img/logo_shop_dark.png' %}" alt="LOGO" width="50" height="50" class="d-inline-block align-text-top">
+                        </a>
+                        <h5>SHOP</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body bg-dark">
+                        
+                        <div class="list-group" id="list-tab" role="tablist">
+                        
+                            {% if inicio %}
+                            <a class="list-group-item list-group-item-action bg-secondary text-white" id="inicio" href="/" role="tab">
+                                <div class="row">
+                                    <span class="material-symbols-outlined col-sm-1">
+                                        home
+                                    </span>
+                                    <span class="col-sm-11">INICIO</span>
+                                </div>
+                            </a>
+                            {% else %}
+                            <a class="btn btn-outline-secondary list-group-item list-group-item-action" id="inicio" href="/" role="tab">
+                                <div class="row">
+                                    <span class="material-symbols-outlined col-sm-1">
+                                        home
+                                    </span>
+                                    <span class="col-sm-11">INICIO</span>
+                                </div>
+                            </a>
+                            {% endif %}
+
+                            {% if caja %}
+                            <a class="list-group-item list-group-item-action bg-secondary text-white" id="caja" href="/" role="tab">
+                                <div class="row">
+                                    <span class="material-symbols-outlined col-sm-1">
+                                        point_of_sale
+                                    </span>
+                                    <span class="col-sm-11">CAJA</span>
+                                </div>
+                            </a>
+                            {% else %}
+                            <a class="list-group-item list-group-item-action" id="caja" href="/" role="tab">
+                                <div class="row">
+                                    <span class="material-symbols-outlined col-sm-1">
+                                        point_of_sale
+                                    </span>
+                                    <span class="col-sm-11">CAJA</span>
+                                </div>
+                            </a>
+                            {% endif %}
+                                
+                            
+                            {% if ventas %}
+                                <a class="list-group-item list-group-item-action bg-secondary text-white" id="ventas" href="/" role="tab">
+                                    <div class="row">
+                                        <span class="material-symbols-outlined col-sm-1">
+                                            receipt
+                                        </span>
+                                        <span class="col-sm-11">VENTAS</span>
+                                    </div>
+                                </a>
+                            {% else %}
+                                <a class="list-group-item list-group-item-action" id="ventas" href="/" role="tab">
+                                    <div class="row">
+                                        <span class="material-symbols-outlined col-sm-1">
+                                            receipt
+                                        </span>
+                                        <span class="col-sm-11">VENTAS</span>
+                                    </div>
+                                </a>
+                            {% endif %}
+                            
+                            {% if clientes %}
+                                <a class="list-group-item list-group-item-action bg-secondary text-white" id="clientes" href="/" role="tab">
+                                    <div class="row">
+                                        <span class="material-symbols-outlined col-sm-1">
+                                            person
+                                        </span>
+                                        <span class="col-sm-11">CLIENTES</span>
+                                    </div>
+                                </a>
+                            {% else %}
+                                <a class="list-group-item list-group-item-action" id="clientes" href="/" role="tab">
+                                    <div class="row">
+                                        <span class="material-symbols-outlined col-sm-1">
+                                            person
+                                        </span>
+                                        <span class="col-sm-11">CLIENTES</span>
+                                    </div>
+                                </a>
+                            {% endif %}
+
+                            {% if productos %}
+                                <a class="list-group-item list-group-item-action bg-secondary text-white" id="productos" href="/" role="tab">
+                                    <div class="row">
+                                        <span class="material-symbols-outlined col-sm-1">
+                                            receipt
+                                        </span>
+                                        <span class="col-sm-11">PRODUCTOS</span>
+                                    </div>
+                                </a>
+                            {% else %}
+                                <a class="list-group-item list-group-item-action" id="productos" href="/" role="tab">
+                                    <div class="row">
+                                        <span class="material-symbols-outlined col-sm-1">
+                                            receipt
+                                        </span>
+                                        <span class="col-sm-11">PRODUCTOS</span>
+                                    </div>
+                                </a>
+                            {% endif %}
+
+                            {% if proveedores %}
+                                <a class="list-group-item list-group-item-action bg-secondary text-white" id="proveedores" href="/" role="tab">
+                                    <div class="row">
+                                        <span class="material-symbols-outlined col-sm-1">
+                                            handshake
+                                        </span>
+                                        <span class="col-sm-11">PROVEEDORES</span>
+                                    </div>
+                                </a>
+                            {% else %}
+                                <a class="list-group-item list-group-item-action" id="proveedores" href="/" role="tab">
+                                    <div class="row">
+                                        <span class="material-symbols-outlined col-sm-1">
+                                            handshake
+                                        </span>
+                                        <span class="col-sm-11">PROVEEDORES</span>
+                                    </div>
+                                </a>
+                            {% endif %}
+
+                            {% if monitoreo %}
+                                <a class="list-group-item list-group-item-action bg-secondary text-white" id="monitoreo" href="/" role="tab">
+                                    <div class="row">
+                                        <span class="material-symbols-outlined col-sm-1">
+                                            monitoring
+                                        </span>
+                                        <span class="col-sm-11">MONITOREO</span>
+                                    </div>
+                                </a>
+                            {% else %}
+                                <a class="list-group-item list-group-item-action" id="monitoreo" href="/" role="tab">
+                                    <div class="row">
+                                        <span class="material-symbols-outlined col-sm-1">
+                                            monitoring
+                                        </span>
+                                        <span class="col-sm-11">MONITOREO</span>
+                                    </div>
+                                </a>
+                            {% endif %}
+                            
+                            {% if compras %}
+                                <a class="list-group-item list-group-item-action bg-secondary text-white" id="compras" href="/" role="tab">
+                                    <div class="row">
+                                        <span class="material-symbols-outlined col-sm-1">
+                                            lab_profile
+                                        </span>
+                                        <span class="col-sm-11">COMPRAS</span>
+                                    </div>
+                                </a>
+                            {% else %}
+                                <a class="list-group-item list-group-item-action" id="compras" href="/" role="tab">
+                                    <div class="row">
+                                        <span class="material-symbols-outlined col-sm-1">
+                                            lab_profile
+                                        </span>
+                                        <span class="col-sm-11">COMPRAS</span>
+                                    </div>
+                                </a>
+                            {% endif %}
+                            {% if tiendas %}
+                                <a class="list-group-item list-group-item-action bg-secondary text-white" id="tienda" href="{% url 'modulo_tienda' %}" role="tab">
+                                    <div class="row">
+                                        <span class="material-symbols-outlined col-sm-1">
+                                            shop
+                                        </span>
+                                        <span class="col-sm-11">TIENDA</span>
+                                    </div>
+                                </a>
+                            {% else %}
+                                <a class="list-group-item list-group-item-action" id="tienda" href="{% url 'modulo_tienda' %}" role="tab">
+                                    <div class="row">
+                                        <span class="material-symbols-outlined col-sm-1">
+                                            shop
+                                        </span>
+                                        <span class="col-sm-11">TIENDA</span>
+                                    </div>
+                                </a>
+                            {% endif %}
+                            {% if user.is_authenticated %}
+                                {% if user.is_superuser %}
+                                <a class="list-group-item list-group-item-action" id="tienda" href="/admin/" role="tab">
+                                    <div class="row">
+                                        <span class="material-symbols-outlined col-sm-1">
+                                            verified_user
+                                        </span>
+                                        <span class="col-sm-11">ADMIN</span>
+                                    </div>
+                                </a>
+                                {% endif %}
+                            {% endif %}
+                        </div>
+                        <div class="text-white mt-3 row">
+                            {% if user.is_authenticated %}
+                            <a class="btn btn-outline-light" href="{% url 'logout' %}">Cerrar sesión</a>
+                            {% else %}
+                            <a class="btn btn-outline-light" href="{% url 'login' %}">Iniciar sesión</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main class="container">{% block content %}{% endblock content %}</main>
+    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+</body>
+</html>
